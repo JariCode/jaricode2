@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="description" content="Web-ohjelmistokehittäjä kehittymässä. Tutustu projekteihini, osaamiseeni ja CV:heni.">
+  <link rel="icon" href="img/favicon-32x32.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <title>JariCode — Web-ohjelmistokehittäjä</title>
+</head>
+<body>
+
+<canvas id="bg"></canvas>
+<div id="cur"></div>
+<div id="cur-ring"></div>
+
+<!-- NAV -->
+<header>
+  <div class="logo"><a href="#top">JariCode</a></div>
+  <button class="menu-toggle" id="burger" aria-label="Avaa valikko">☰</button>
+  <nav>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#presentation">Esittely</a></li>
+      <li><a href="#projects">Projektit</a></li>
+      <li><a href="#cv">CV</a></li>
+      <li><a href="#contact">Ota yhteyttä</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section id="top">
+  <div class="hero-rings">
+    <div class="ring r1"></div>
+    <div class="ring r2"></div>
+    <div class="ring r3"></div>
+  </div>
+
+  <svg class="hero-gem" viewBox="0 0 200 200" fill="none">
+    <polygon points="100,8 192,60 192,140 100,192 8,140 8,60"    stroke="currentColor" stroke-width=".6"  fill="none"/>
+    <polygon points="100,28 172,66 172,134 100,172 28,134 28,66" stroke="currentColor" stroke-width=".4" opacity=".5" fill="none"/>
+    <polygon points="100,55 145,80 145,120 100,145 55,120 55,80" stroke="currentColor" stroke-width=".4" opacity=".3" fill="none"/>
+    <circle cx="100" cy="100" r="7"   stroke="currentColor" stroke-width=".6" fill="none"/>
+    <circle cx="100" cy="100" r="2.5" fill="currentColor" opacity=".5"/>
+    <line x1="100" y1="8"   x2="100" y2="55"  stroke="currentColor" stroke-width=".3" opacity=".4"/>
+    <line x1="100" y1="145" x2="100" y2="192" stroke="currentColor" stroke-width=".3" opacity=".4"/>
+    <line x1="8"   y1="100" x2="55"  y2="100" stroke="currentColor" stroke-width=".3" opacity=".4"/>
+    <line x1="145" y1="100" x2="192" y2="100" stroke="currentColor" stroke-width=".3" opacity=".4"/>
+  </svg>
+
+  <h1 class="hero-title"><span class="glitch" data-text="JariCode">JariCode</span></h1>
+
+  <div class="hero-rule">
+    <div class="rule-line"></div>
+    <span class="rule-sym">✦</span>
+    <div class="rule-line"></div>
+  </div>
+
+  <p class="hero-sub"><span class="typer">Web-ohjelmistokehittäjä kehittymässä</span></p>
+
+  <p class="hero-desc">
+    Olen Jari — tervetuloa tutustumaan projekteihini ja osaamiseeni.<br/>
+    Tämä on paikka, jossa koodi kohtaa käytännön.
+  </p>
+
+  <a href="#presentation" class="hero-cta">Tutustu minuun</a>
+
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
+    <span>scroll</span>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ESITTELY -->
+<section class="sec" id="presentation">
+  <div class="sec-header reveal">
+    <p class="sec-label">§ I</p>
+    <h2 class="sec-title">Esittely</h2>
+  </div>
+  <div class="about-grid">
+    <div class="about-text reveal d1">
+      <p class="about-lead">Hei! Nimeni on Jari Karri ja asun Keravalla.</p>
+      <p>Olen alanvaihtaja sekä aikuisopiskelija, joka etsii työssäoppimispaikkaa ja mahdollisuuksia työllistyä ICT-alalle web-ohjelmistokehittäjänä.</p>
+      <p>Opiskelen tieto- ja viestintätekniikan perustutkintoa. Opinnoissani olen suuntautunut erityisesti web-kehitykseen ja ohjelmistojen suunnitteluun.</p>
+      <p>Vapaa-ajallani nautin ulkoilusta koirani kanssa, liikunnasta ja luonnossa retkeilystä. Kamppailulajien lisäksi olen kiinnostunut valo- ja videokuvauksesta, elokuvista sekä musiikista.</p>
+      <p>Nämä kaikki auttavat minua kehittämään luovuuttani ja visuaalista silmääni, joita voin hyödyntää myös työelämässä.</p>
+      <p class="about-closing">Etsin aktiivisesti työssäoppimispaikkaa ja töitä, joissa voin kehittää taitojani. Olen motivoitunut oppimaan uutta ja kantamaan korteni kekoon.</p>
+    </div>
+    <div class="about-img-wrap reveal d3">
+      <div class="img-frame">
+        <img src="img/esittely.JPG" alt="Jari Karri" />
+        <div class="img-overlay"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider-sym">✦ ✦ ✦</div>
+<div class="divider"></div>
+
+<!-- PROJEKTIT -->
+<section class="sec" id="projects">
+  <div class="sec-header reveal">
+    <p class="sec-label">§ II</p>
+    <h2 class="sec-title">Projektit</h2>
+  </div>
+  <div class="projects-layout">
+    <div class="reveal d1">
+      <div class="carousel" id="carousel">
+        <img src="img/animaatio.png"   alt="Animaatio"    class="car-img active" />
+        <img src="img/budo.png"        alt="Budo"         class="car-img" />
+        <img src="img/road.png"        alt="Road"         class="car-img" />
+        <img src="img/spiderman.png"   alt="Spiderman"    class="car-img" />
+        <img src="img/mehtäläiset.png" alt="Mehtäläiset"  class="car-img" />
+        <img src="img/soturit.png"     alt="Soturit"      class="car-img" />
+        <img src="img/kalenteri.png"   alt="Kalenteri"    class="car-img" />
+        <img src="img/judovisa.png"    alt="Judovisa"     class="car-img" />
+        <img src="img/zombietodo.png"  alt="Zombie TO-DO" class="car-img" />
+        <img src="img/scarynotes.png"  alt="Scary Notes"  class="car-img" />
+        <div class="car-dots" id="car-dots"></div>
+      </div>
+    </div>
+    <nav class="project-links reveal d2">
+      <a href="https://jaricode.fi/Budo/" target="_blank" rel="noopener" class="plink">
+        <span class="plink-name">Budo</span><span class="plink-tech">HTML &amp; CSS</span><span class="plink-arr">→</span>
+      </a>
+      <a href="https://jaricode.fi/Meht%C3%A4l%C3%A4iset/" target="_blank" rel="noopener" class="plink">
+        <span class="plink-name">Mehtäläiset</span><span class="plink-tech">Materialize CSS</span><span class="plink-arr">→</span>
+      </a>
+      <a href="https://jaricode.fi/soturit/" target="_blank" rel="noopener" class="plink">
+        <span class="plink-name">Soturit</span><span class="plink-tech">WordPress, Elementor</span><span class="plink-arr">→</span>
+      </a>
+      <a href="https://jaricode.fi/Arvaa/" target="_blank" rel="noopener" class="plink">
+        <span class="plink-name">Arvaa numero</span><span class="plink-tech">JavaScript</span><span class="plink-arr">→</span>
+      </a>
+      <a href="https://henkilot.github.io/AI/" target="_blank" rel="noopener" class="plink">
+        <span class="plink-name">AI ryhmätyöprojekti</span><span class="plink-arr">→</span>
+      </a>
+      <a href="https://drive.google.com/file/d/1Gu7gtgSU7s0Zdi9_KiNuu4pZBW7_ESPb/view?usp=sharing" target="_blank" rel="noopener" class="plink">
+        <span class="plink-name">Kalenteri sovellus</span><span class="plink-tech">React / Vite</span><span class="plink-arr">→</span>
+      </a>
+      <a href="https://drive.google.com/file/d/1g13Vz_IPkTIV4rZc6epIkhEsImEZjycD/view?usp=sharing" target="_blank" rel="noopener" class="plink">
+        <span class="plink-name">Judovisa</span><span class="plink-wip">◆ Työn alla</span><span class="plink-arr">→</span>
+      </a>
+      <a href="https://jaricode.fi/zombietodo/" target="_blank" rel="noopener" class="plink">
+        <span class="plink-name">Zombie TO-DO App</span><span class="plink-wip">◆ Työn alla</span><span class="plink-arr">→</span>
+      </a>
+      <a href="https://jaricode.fi/scarynotes/" target="_blank" rel="noopener" class="plink">
+        <span class="plink-name">Scary Notes</span><span class="plink-tech">Web &amp; Mobile</span><span class="plink-arr">→</span>
+      </a>
+    </nav>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CV -->
+<section class="sec" id="cv">
+  <div class="sec-header reveal">
+    <p class="sec-label">§ III</p>
+    <h2 class="sec-title">CV &amp; Sertifikaatit</h2>
+  </div>
+  <div class="cv-grid">
+    <div class="cv-cards reveal d1">
+      <div class="cv-card">
+  <h3>📄 CV-tiedosto</h3>
+  <p>Tutustu CV:heni.</p>
+  <a href="#" class="btn" id="openCV">Avaa CV</a>
+</div>
+
+    <div class="cv-card">
+        <h3>🎥 Video-CV</h3>
+        <p>Katso video-CV:ni alta.</p>
+        <a href="#" class="btn" id="openVideo">Katso video</a>
+    </div>
+
+      <!-- VIDEO POPUP -->
+    <div class="video-modal" id="videoModal">
+        <div class="video-modal-content">
+          <button class="video-close" id="closeVideo">✕</button>
+
+          <video id="videoPlayer" controls preload="metadata">
+            <source src="video/VideoCv.mp4" type="video/mp4">
+            Selaimesi ei tue videota.
+          </video>
+
+        </div>
+    </div>
+
+    </div>
+    <div class="reveal d3">
+      <p class="sec-label" style="margin-bottom:1.2rem;">Sertifikaatit</p>
+      <div class="cert-grid">
+        <a href="https://www.credly.com/badges/7e8b2ee8-d9ef-4680-9e68-3d491925a622/linked_in?t=t0k3z6" class="cert-link" target="_blank" rel="noopener">
+          <img src="img/it-specialist-html-and-css.png" alt="IT Specialist — HTML &amp; CSS" />
+        </a>
+        <a href="https://www.freecodecamp.org/certification/fcc39ef1022-8d9c-4f26-9d96-ad4432bda897/responsive-web-design" class="cert-link" target="_blank" rel="noopener">
+          <img src="img/Responsive Web Design certification.png" alt="Responsive Web Design" />
+        </a>
+        <a href="https://www.freecodecamp.org/certification/fcc39ef1022-8d9c-4f26-9d96-ad4432bda897/javascript-v9" class="cert-link" target="_blank" rel="noopener">
+          <img src="img/JavaScript_Serti.png" alt="JavaScript Developer" />
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONTACT -->
+<section class="sec" id="contact">
+  <div class="sec-header reveal">
+    <p class="sec-label">§ IV</p>
+    <h2 class="sec-title">Ota yhteyttä</h2>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-img-wrap reveal d1">
+      <img src="img/yhteys.JPEG" alt="Ota yhteyttä" />
+    </div>
+    <div class="reveal d3">
+      <p class="contact-tagline">Etsin aktiivisesti työssäoppimispaikkaa —<br/>Ollaan yhteydessä.</p>
+      <div class="contact-info">
+        <p><a href="mailto:jaricode@elisanet.fi">jaricode@elisanet.fi</a></p>
+        <p><a href="tel:+358458985655">045 898 5655</a></p>
+      </div>
+      <div class="social-icons">
+        <a href="mailto:jaricode@elisanet.fi" title="Email"><img src="img/envelope.svg" alt="Email" /></a>
+        <a href="https://wa.me/+358458985655" target="_blank" rel="noopener" title="WhatsApp"><img src="img/whatsapp.svg" alt="WhatsApp" /></a>
+        <a href="https://fi.linkedin.com/in/jari-karri-04b09533b" target="_blank" rel="noopener" title="LinkedIn"><img src="img/linkedin.svg" alt="LinkedIn" /></a>
+        <a href="https://fi-fi.facebook.com/public/Jari-Karri" target="_blank" rel="noopener" title="Facebook"><img src="img/facebook.svg" alt="Facebook" /></a>
+        <a href="https://www.instagram.com/jari.karri/" target="_blank" rel="noopener" title="Instagram"><img src="img/instagram.svg" alt="Instagram" /></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 <a href="https://www.jaricode.fi">JariCode</a> — Kaikki oikeudet pidätetään.</p>
+</footer>
+
+<!-- CV MODAL -->
+<div class="cv-modal" id="cvModal">
+  <div class="cv-modal-content">
+    <button class="cv-close" id="closeCV">✕</button>
+    <a href="#" class="btn cv-print" id="printCV">Tulosta PDF</a>
+    
+    <div class="cv-content">
+
+  <!-- HEADER + KUVA -->
+  <div class="cv-header">
+    <div>
+      <h3 class="cv-name">Jari Karri</h3>
+      <p class="cv-meta">
+        Kerava · 48 vuotta · 045 898 5655 · jari.karri@elisanet.fi · www.jaricode.fi
+      </p>
+    </div>
+
+    <div class="cv-photo">
+      <img src="/img/autossa.jpeg" alt="Jari Karri">
+    </div>
+  </div>
+
+  <div class="cv-section">
+    <h4>Profiili</h4>
+    <p>
+      Olen alanvaihtaja sekä aikuisopiskelija, joka etsii työssäoppimispaikkaa
+      ja osa-aikaista työtä opintojen ajalle. Opiskelen tieto- ja viestintätekniikan
+      perustutkintoa Taitotalossa. Opinnoissani olen keskittynyt erityisesti
+      web-kehitykseen ja ohjelmistojen suunnitteluun.
+    </p>
+  </div>
+
+  <div class="cv-section">
+    <h4>Koulutus</h4>
+    <p><strong>Tieto- ja viestintätekniikan perustutkinto, Web-ohjelmistokehittäjä</strong><br>10/2024–</p>
+    <p><strong>Autoalan perustutkinto, autonasentaja</strong><br>Valmistunut 14.4.2016</p>
+    <p><strong>Sähkö- ja automaatiotekniikan perustutkinto, sähköasentaja</strong><br>Valmistunut 4.3.2014</p>
+    <p><strong>Turvallisuusalan perustutkinto, turvallisuusvalvoja</strong><br>Valmistunut 21.2.2012</p>
+  </div>
+
+  <div class="cv-section">
+    <h4>Kielitaito</h4>
+    <ul>
+      <li>Suomi – Äidinkieli</li>
+      <li>Englanti – Hyvä</li>
+    </ul>
+  </div>
+
+  <div class="cv-section">
+    <h4>IT-taidot</h4>
+    <ul>
+      <li>HTML, CSS</li>
+      <li>JavaScript</li>
+      <li>React</li>
+      <li>WordPress</li>
+      <li>MySQL</li>
+      <li>Tietoliikenteen perusteet</li>
+      <li>Verkon aktiivilaitteet</li>
+    </ul>
+  </div>
+
+  <div class="cv-section">
+    <h4>Sertifikaatit</h4>
+    <ul>
+      <li>Responsive Web Design</li>
+      <li>IT Specialist HTML and CSS</li>
+      <li>JavaScript</li>
+    </ul>
+  </div>
+
+  <div class="cv-section">
+    <h4>Työkokemus</h4>
+
+    <p><strong>Työssäoppimisjakso (5/2025–8/2025)</strong><br>
+    Web-ohjelmistokehittäjän tehtävät. WordPress-sivuston suunnittelu ja toteutus.
+    HTML-, CSS- ja JavaScript-sivun suunnittelu ja toteutus tuotteen aloitussivuksi.</p>
+
+    <p><strong>Autoalan työtehtävät (5/2015–10/2024)</strong><br>
+    Automekaanikkona eri työnantajilla. Huoltoja, korjauksia,
+    vaihtoautotarkastuksia ja vianhakua.</p>
+
+    <p><strong>Turvallisuusalan työtehtävät (4/1998–9/2013)</strong><br>
+    Vartija, myymäläetsivä, järjestyksenvalvoja, ylivartija,
+    kohde-esimies ja turvalaiteasentaja.</p>
+
+    <p><strong>Sekatyömies (10/1997–3/1998)</strong><br>
+    Hirviaita-, koirapuisto- ja varastorakennuskeikkoja
+    armeijan jälkeen ennen ensimmäistä vakituista työpaikkaa.</p>
+  </div>
+
+  <div class="cv-section">
+    <h4>Kurssit</h4>
+    <ul>
+      <li>FreeCodeCamp – Responsive Web Design (1/2025)</li>
+      <li>Tieto- ja viestintätekniikan perustehtävät (18.8.2025)</li>
+      <li>Verkkopalvelun tekninen toteuttaminen (18.8.2025)</li>
+    </ul>
+  </div>
+
+  <div class="cv-section">
+    <h4>Harrastukset</h4>
+    <p>Kamppailulajit, koiran kanssa ulkoilu ja retkeily, valo- ja videokuvaaminen.</p>
+  </div>
+
+</div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
