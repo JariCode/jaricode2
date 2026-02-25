@@ -1,3 +1,4 @@
 # jaricode2
-Uusi porfolio galaksi teemalla.
+Uusi portfolio galaksi teemalla.
+
 
