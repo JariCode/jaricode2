@@ -557,6 +557,42 @@ footer a:hover {
   .sec { padding:4rem 1.5rem; }
   .about-grid, .projects-layout, .cv-grid, .contact-grid { grid-template-columns:1fr; gap:3rem; }
 
+  /* Make certificates stack and center on small screens */
+  .cert-grid {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 1rem;
+  }
+  .cert-link {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  /* Stack carousel and project links and center links on tablet/mobile */
+  .projects-layout {
+    grid-template-columns: 1fr;
+    align-items: center;
+    gap: 2.5rem;
+  }
+  .projects-layout .carousel { width:100%; }
+  .project-links {
+    width:100%;
+    max-width:720px;
+    margin:0 auto;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:.6rem;
+  }
+  .project-links .plink {
+    width:100%;
+    justify-content:center;
+    padding:.9rem 1rem;
+    text-align:center;
+  }
+  .project-links .plink .plink-tech { display:block; margin-left:0; margin-top:.25rem; }
+  .project-links .plink .plink-arr { display:none; }
+
   /* Make hero area responsive on smaller screens */
   #top {
     padding:4rem 1.5rem 3rem;
@@ -574,6 +610,25 @@ footer a:hover {
   }
   .hero-desc { max-width:520px; font-size:1rem; margin-top:1rem; }
   .hero-cta { margin-top:1.2rem; }
+  /* Place scroll hint below CTA on smaller screens to avoid overlap */
+  .scroll-hint {
+    position:relative;
+    bottom:auto;
+    left:auto;
+    transform:none;
+    margin-top:1rem;
+  }
+  /* Center contact section content on small screens */
+  #contact .reveal.d3 {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+  #contact .contact-info { text-align: center; }
+  #contact .social-icons { justify-content: center; }
   /* Allow the typer text to wrap on small screens and disable width-based typing */
   .typer {
     display:inline !important;
@@ -732,7 +787,14 @@ footer a:hover {
   .cert-grid { grid-template-columns:repeat(2,1fr); }
   .plink { font-size:.82rem; }
   .hero-title { font-size:clamp(3rem,16vw,5rem); }
+
+   .cert-grid { grid-template-columns:1fr; gap:.8rem; }
+  .cert-link { max-width:200px; margin:0 auto; }
+  .cert-link img { width:100%; height:auto; display:block; }
+  /* Center the 'Sertifikaatit' label in CV section */
+  #cv .sec-label { text-align:center; margin-left:auto; margin-right:auto; }
 }
+
 /* ══════════════════════════════════════════
    VIDEO POPUP
 ══════════════════════════════════════════ */
