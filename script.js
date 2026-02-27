@@ -247,6 +247,12 @@ logoA.addEventListener('mouseleave', () => {
   logoA.textContent = logoOriginal;
 });
 
+// Varmistaa että logo vie yhdellä klikkauksella sivun yläreunaan
+logoA.addEventListener('click', (e) => {
+  e.preventDefault();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
 /* ══════════════════════════════════════════
    PROJECT LINK staggered entrance delay
 ══════════════════════════════════════════ */
