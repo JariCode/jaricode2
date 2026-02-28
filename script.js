@@ -371,8 +371,8 @@ printBtn.addEventListener('click', (e) => {
         <!-- TÄRKEÄ: korjaa kuvan polut -->
         <base href="${window.location.origin}/">
 
-        <!-- Google Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=EB+Garamond:wght@400;500&display=swap" rel="stylesheet">
+        <!-- Self-hosted fontit -->
+        <link rel="stylesheet" href="${window.location.origin}/fonts.css">
 
         <style>
           :root {

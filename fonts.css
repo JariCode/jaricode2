@@ -1,0 +1,59 @@
+/* ══════════════════════════════════════════
+   JARICODE — Self-hosted fontit
+   Laita kaikki .woff2 ja .woff tiedostot
+   palvelimelle kansioon: fonts/
+══════════════════════════════════════════ */
+
+/* ── Cinzel (variable font kattaa kaikki painot) ── */
+@font-face {
+  font-family: 'Cinzel';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('fonts/Cinzel-Regular.woff2') format('woff2'),
+       url('fonts/Cinzel-Regular.woff') format('woff');
+}
+
+/* ── Cinzel Decorative ── */
+@font-face {
+  font-family: 'Cinzel Decorative';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/CinzelDecorative-Regular.woff2') format('woff2'),
+       url('fonts/CinzelDecorative-Regular.woff') format('woff');
+}
+@font-face {
+  font-family: 'Cinzel Decorative';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('fonts/CinzelDecorative-Bold.woff2') format('woff2'),
+       url('fonts/CinzelDecorative-Bold.woff') format('woff');
+}
+@font-face {
+  font-family: 'Cinzel Decorative';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url('fonts/CinzelDecorative-Black.woff2') format('woff2'),
+       url('fonts/CinzelDecorative-Black.woff') format('woff');
+}
+
+/* ── EB Garamond ── */
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: normal;
+  font-weight: 400 500;
+  font-display: swap;
+  src: url('fonts/EBGaramond-Regular.woff2') format('woff2'),
+       url('fonts/EBGaramond-Regular.woff') format('woff');
+}
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/EBGaramond-Italic.woff2') format('woff2'),
+       url('fonts/EBGaramond-Italic.woff') format('woff');
+}
