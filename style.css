@@ -962,3 +962,8 @@ footer a:hover {
   padding-left:1rem;
 }
 
+.privacy-note {
+  margin-top: .4rem;
+  font-size: .62rem;
+  opacity: .55;
+}
