@@ -158,12 +158,67 @@ function drawDrops() {
   });
 }
 
+/* ── Shooting stars / Tähdenlento ── */
+let stars = [];
+
+function mkStar() {
+  const x = Math.random() * W * 0.7;
+  const y = Math.random() * H * 0.4;
+  const angle = Math.PI / 5 + (Math.random() - 0.5) * 0.3;
+  const speed = 6 + Math.random() * 6;
+  return {
+    x, y,
+    vx: Math.cos(angle) * speed,
+    vy: Math.sin(angle) * speed,
+    len: 80 + Math.random() * 120,
+    life: 1,
+    decay: 0.022 + Math.random() * 0.018
+  };
+}
+
+function scheduleStar() {
+  stars.push(mkStar());
+  setTimeout(scheduleStar, 4000 + Math.random() * 10000);
+}
+setTimeout(scheduleStar, 2000);
+
+function drawStars() {
+  stars = stars.filter(s => s.life > 0);
+  stars.forEach(s => {
+    s.life -= s.decay;
+    s.x += s.vx;
+    s.y += s.vy;
+    const a = s.life;
+    ctx.save();
+    const grad = ctx.createLinearGradient(
+      s.x - s.vx * 8, s.y - s.vy * 8,
+      s.x - Math.cos(Math.atan2(s.vy, s.vx)) * s.len,
+      s.y - Math.sin(Math.atan2(s.vy, s.vx)) * s.len
+    );
+    grad.addColorStop(0, `rgba(245,224,154,${a})`);
+    grad.addColorStop(1, `rgba(212,168,67,0)`);
+    ctx.strokeStyle = grad;
+    ctx.lineWidth = 1.5;
+    ctx.shadowColor = `rgba(212,168,67,${a * 0.8})`;
+    ctx.shadowBlur = 8;
+    ctx.beginPath();
+    ctx.moveTo(s.x, s.y);
+    ctx.lineTo(
+      s.x - Math.cos(Math.atan2(s.vy, s.vx)) * s.len,
+      s.y - Math.sin(Math.atan2(s.vy, s.vx)) * s.len
+    );
+    ctx.stroke();
+    ctx.restore();
+  });
+}
+
 /* ── Main draw loop ── */
 function draw() {
   ctx.clearRect(0, 0, W, H);
   updateParticles();
   drawBolts();
   drawDrops();
+  drawStars();
   requestAnimationFrame(draw);
 }
 draw();
