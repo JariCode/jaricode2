@@ -677,6 +677,11 @@ footer a:hover {
     border-right:none !important;
     width:auto !important;
   }
+
+ .social-icons {
+    display:grid;
+    grid-template-columns:repeat(3,46px);
+  }
 }
 
 /* ══════════════════════════════════════════
