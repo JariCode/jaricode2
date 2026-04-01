@@ -475,6 +475,14 @@ nav { margin-left:auto; }
 }
 .cert-link:hover img { filter:grayscale(0%); }
 
+.cv-section a {
+  color: var(--gold);
+  transition: color .3s;
+}
+.cv-section a:hover {
+  color: var(--gold-pale);
+}
+
 /* ══════════════════════════════════════════
    CONTACT
 ══════════════════════════════════════════ */
