@@ -365,7 +365,8 @@ nav { margin-left:auto; }
 .projects-layout { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:start; }
 
 .carousel {
-  position:relative; aspect-ratio:16/10; overflow:hidden;
+  position:relative; aspect-ratio:16/8; overflow:hidden;
+  margin-top:2rem;
   border:1px solid var(--border2);
   box-shadow:0 0 40px rgba(0,0,0,.6), inset 0 0 20px rgba(0,0,0,.5);
   transition:border-color .4s, box-shadow .4s;
