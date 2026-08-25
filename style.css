@@ -297,10 +297,10 @@ nav { margin-left:auto; }
 }
 
 /* ── Yhteinen hover-efekti kaikille interaktiivisille elementeille ── */
-.hero-cta, .btn, .plink, .social-icons a {
+.hero-cta, .btn, .social-icons a {
   position:relative; overflow:hidden;
 }
-.hero-cta::before, .btn::before, .plink::after {
+.hero-cta::before, .btn::before {
   content:''; position:absolute; inset:0; background:var(--gold);
   transform:translateX(-101%);
   transition:transform .38s cubic-bezier(.16,1,.3,1); z-index:-1;
@@ -362,62 +362,64 @@ nav { margin-left:auto; }
 /* ══════════════════════════════════════════
    PROJEKTIT
 ══════════════════════════════════════════ */
-.projects-layout { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:start; }
-
-.carousel {
-  position:relative; aspect-ratio:16/8; overflow:hidden;
-  margin-top:2rem;
-  border:1px solid var(--border2);
-  box-shadow:0 0 40px rgba(0,0,0,.6), inset 0 0 20px rgba(0,0,0,.5);
-  transition:border-color .4s, box-shadow .4s;
+/* Suodatinnapit */
+.proj-filters { display:flex; flex-wrap:wrap; gap:.7rem; justify-content:center; margin-bottom:2.5rem; }
+.fbtn {
+  font-family:'Cinzel', serif; font-size:.72rem; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--text-mid); background:var(--card); border:1px solid var(--border);
+  padding:.55rem 1.1rem; cursor:none;
+  transition:color .35s, border-color .35s, background .35s, box-shadow .35s;
 }
-.carousel:hover { border-color:var(--gold-dim); box-shadow:0 0 40px var(--gold-glow); }
-.car-img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity .9s ease; filter:sepia(20%) brightness(.82); }
-.car-img.active { opacity:1; }
-.carousel::after { content:''; position:absolute; inset:0; background:linear-gradient(135deg,rgba(212,168,67,.05),transparent 55%); pointer-events:none; }
-.car-dots { position:absolute; bottom:10px; left:0; right:0; display:flex; justify-content:center; gap:6px; z-index:2; }
-.car-dot { width:6px; height:6px; border-radius:50%; background:rgba(212,168,67,.25); border:none; cursor:none; transition:background .3s, transform .3s; }
-.car-dot.active { background:var(--gold); transform:scale(1.4); }
+.fbtn:hover { color:var(--gold-pale); border-color:var(--gold-dim); box-shadow:0 0 16px var(--gold-glow); }
+.fbtn.active { color:var(--gold-pale); border-color:var(--border2); background:#12121f; }
 
-/* Projektilinkit — täsmälleen sama hover kuin hero-cta ja btn */
-.project-links { display:flex; flex-direction:column; gap:.1rem; list-style:none; }
-.plink {
-  display:flex; align-items:center; gap:.8rem;
-  padding:.9rem 1.2rem;
-  font-family:'Cinzel', serif;
-  font-size:1rem; letter-spacing:.06em;
-  color:var(--text);           /* Valkoinen teksti — selvästi luettava */
-  border:1px solid transparent;
-  transition:color .38s, border-color .38s, padding-left .38s, box-shadow .38s;
+/* Korttiruudukko */
+.proj-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(min(230px, 100%), 1fr)); gap:1.4rem; }
+
+.pcard {
+  display:block; background:var(--card); border:1px solid var(--border);
+  overflow:hidden; opacity:0; transform:translateY(18px);
+  animation:pcard-in .55s cubic-bezier(.16,1,.3,1) forwards;
+  transition:border-color .4s, transform .4s, box-shadow .4s;
+}
+@keyframes pcard-in { to { opacity:1; transform:translateY(0); } }
+.pcard:hover {
+  border-color:var(--gold-dim); transform:translateY(-5px);
+  box-shadow:0 10px 34px rgba(0,0,0,.55), 0 0 26px var(--gold-glow);
 }
 
-/* Vasen palkki */
-.plink::before {
-  content:''; position:absolute; left:0; top:0; bottom:0;
-  width:2px; background:var(--gold-dim);
-  transform:scaleY(0); transition:transform .38s cubic-bezier(.16,1,.3,1);
+.pcard-img {
+  position:relative; height:135px; overflow:hidden;
+  border-bottom:1px solid var(--border);
+  background:linear-gradient(135deg,#12121f,#0a0a14);
+  display:flex; align-items:center; justify-content:center;
 }
-/* Fill-efekti — sama kuin hero-cta */
-.plink::after {
-  content:''; position:absolute; inset:0; background:var(--gold);
-  transform:translateX(-101%);
-  transition:transform .38s cubic-bezier(.16,1,.3,1); z-index:-1;
-}
-.plink:hover {
-  color:var(--black);
-  border-color:var(--gold);
-  padding-left:1.8rem;
-  box-shadow:0 0 22px var(--gold-glow);
-}
-.plink:hover::before { transform:scaleY(1); }
-.plink:hover::after  { transform:translateX(0); }
+.pcard-img img { width:100%; height:100%; object-fit:cover; filter:sepia(20%) brightness(.82); transition:transform .5s, filter .5s; }
+.pcard:hover .pcard-img img { transform:scale(1.05); filter:sepia(10%) brightness(.95); }
+.pcard-img::after { content:''; position:absolute; inset:0; background:linear-gradient(135deg,rgba(212,168,67,.05),transparent 55%); pointer-events:none; }
+.pcard-gem { width:66px; height:66px; color:var(--gold-dim); opacity:.5; transition:opacity .4s, transform .5s; }
+.pcard:hover .pcard-gem { opacity:.85; transform:rotate(45deg); }
 
-.plink-name { flex:none; }
-.plink-tech { font-size:.85rem; color:var(--text-mid); margin-left:.5rem; font-family:'EB Garamond', serif; font-style:italic; }
-.plink-wip  { font-size:.72rem; color:#e05555; margin-left:.5rem; animation:wip-pulse 2s ease-in-out infinite; }
-@keyframes wip-pulse { 0%,100%{opacity:.9;} 50%{opacity:.4;} }
-.plink-arr  { margin-left:auto; opacity:0; transition:opacity .25s, transform .25s; }
-.plink:hover .plink-arr { opacity:1; transform:translateX(4px); }
+.pcard-status {
+  position:absolute; top:10px; right:10px; z-index:2;
+  font-family:'Cinzel', serif; font-size:.62rem; letter-spacing:.1em;
+  padding:.25rem .55rem; background:rgba(4,4,10,.72);
+}
+.pcard-status.done { color:#5dcaa5; border:1px solid #0f6e56; }
+.pcard-status.wip  { color:#e05555; border:1px solid var(--red-dim); animation:wip-pulse 2s ease-in-out infinite; }
+@keyframes wip-pulse { 0%,100%{opacity:1;} 50%{opacity:.45;} }
+
+.pcard-body { padding:1.1rem 1.2rem 1.3rem; }
+.pcard-name {
+  font-family:'Cinzel', serif; font-size:1.1rem; font-weight:600;
+  color:var(--gold-pale); letter-spacing:.03em; margin-bottom:.55rem;
+}
+.pcard-desc { font-size:.92rem; line-height:1.55; color:var(--text-mid); margin-bottom:1rem; }
+.pcard-tech { display:flex; flex-wrap:wrap; gap:.4rem; }
+.pcard-tech span {
+  font-size:.66rem; letter-spacing:.05em; color:var(--gold);
+  border:1px solid var(--gold-dark); padding:.2rem .55rem;
+}
 
 /* ══════════════════════════════════════════
    CV
@@ -579,7 +581,7 @@ footer a:hover {
   }
 
   .sec { padding:4rem 1.5rem; }
-  .about-grid, .projects-layout, .cv-grid, .contact-grid { grid-template-columns:1fr; gap:3rem; }
+  .about-grid, .cv-grid, .contact-grid { grid-template-columns:1fr; gap:3rem; }
 
   /* Make certificates stack and center on small screens */
   .cert-grid {
@@ -591,48 +593,6 @@ footer a:hover {
     width: 100%;
     max-width: 320px;
   }
-
-  /* Stack carousel and project links and center links on tablet/mobile */
-  .projects-layout {
-    grid-template-columns: 1fr;
-    align-items: center;
-    gap: 2.5rem;
-  }
-  .projects-layout .carousel { width:100%; }
-  .project-links {
-    width:100%;
-    max-width:720px;
-    margin:0 auto;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:.6rem;
-  }
-  .project-links .plink {
-    width:100%;
-    justify-content:center;
-    padding:.9rem 1rem;
-    text-align:center;
-    flex-wrap:wrap;
-    align-items:center;
-  }
-  .project-links .plink .plink-name {
-    width:100%;
-    display:block;
-  }
-  .project-links .plink .plink-tech {
-    display:block;
-    width:100%;
-    margin-left:0;
-    margin-top:.25rem;
-  }
-  .project-links .plink .plink-wip {
-    display:block;
-    width:100%;
-    margin-left:0;
-    margin-top:.15rem;
-  }
-  .project-links .plink .plink-arr { display:none; }
 
   /* Make hero area responsive on smaller screens */
   #top {
@@ -831,7 +791,6 @@ footer a:hover {
 
 @media (max-width:520px) {
   .cert-grid { grid-template-columns:repeat(2,1fr); }
-  .plink { font-size:.82rem; }
   .hero-title { font-size:clamp(3rem,16vw,5rem); }
 
    .cert-grid { grid-template-columns:1fr; gap:.8rem; }

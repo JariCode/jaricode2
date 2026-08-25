@@ -244,30 +244,80 @@ const revObs = new IntersectionObserver(entries => {
 document.querySelectorAll('.reveal').forEach(el => revObs.observe(el));
 
 /* ══════════════════════════════════════════
-   CAROUSEL
+   PROJEKTIT — korttiruudukko + suodatus
+   Lisää kuva vaihtamalla img:"" -> img:"img/tiedosto.webp"
 ══════════════════════════════════════════ */
-const carImgs  = document.querySelectorAll('.car-img');
-const dotsWrap = document.getElementById('car-dots');
-let carIdx = 0, carTimer;
+const PROJECTS = [
+  { name:"Watcher AI",        desc:"Tekoälypohjainen chatsovellus.",                                  tech:["React","Node.js","OpenAI"],   tags:["React"], status:"done", url:"https://youtu.be/riLghm5ydWo?si=8CQeuqb8dE7TdjCo", img:"img/watcher-ai.webp" },
+  { name:"Reaper's Calendar", desc:"Synkkä kalenterisovellus tehtävien hallintaan.",                  tech:["React","MongoDB Atlas"],      tags:["React"],        status:"done", url:"https://youtu.be/Ov1q_Gs6aqc?si=QZ5SnAn2_2odQ6JD", img:"img/reapers_calendar.webp" },
+  { name:"Scary Notes",       desc:"Muistiinpanosovellus web- ja mobiilikäyttöön.",                   tech:["Web","Mobile"],               tags:[],               status:"done", url:"https://www.youtube.com/watch?v=B4FVWTENkv8", img:"img/scarynotes.webp" },
+  { name:"Palkkiolaskuri",    desc:"Palkkioiden laskuri oikealle asiakkaalle.",                       tech:["Asiakasprojekti","Ryhmätyö"], tags:[],               status:"done", url:"https://palkkiolaskuri.fi/", img:"" },
+  { name:"Zombie TO-DO",      desc:"Tehtävälista zombie-teemalla ja tietokannalla.",                  tech:["PHP","MySQL"],                tags:[],               status:"done", url:"https://youtu.be/7N0jjv_Zsjc?si=vHKVJ7ETIK7EyHBb", img:"img/zombietodo.webp" },
+  { name:"AI-sivu",           desc:"Ryhmätyönä toteutettu tekoälyaiheinen sivusto.",                  tech:["Ryhmätyöprojekti"],           tags:[],               status:"done", url:"https://henkilot.github.io/AI/", img:"" },
+  { name:"Judovisa",          desc:"Judon termistöä testaava visasovellus.",                          tech:["JavaScript","Node.js"],       tags:["Node"],         status:"wip",  url:"https://www.youtube.com/watch?v=b0A5zm8vlyg", img:"img/judovisa.webp" },
+  { name:"Ikimetsä",          desc:"React-pohjainen roolipeli metsämaailmassa.",                      tech:["React","Roolipeli"],          tags:["React"],        status:"wip",  url:"https://drive.google.com/file/d/19yDpMizZySFxg0jdJ-55eZmp4t_74Plb/view", img:"img/ikimetsa.webp" },
+  { name:"Kilsamittari",      desc:"Kävelypäiväkirja matkojen seurantaan.",                           tech:["React","MERN"],               tags:["React"],        status:"done",  url:"https://youtu.be/zV87zPPu7hQ?si=fntKzL1zCzyU7Jdz", img:"img/kilsamittari.webp" },
+   { name:"VäinöAI",          desc:"Keskusteleva tekoälyhahmo.",                                      tech:["React","Node.js","Tekoäly"],  tags:["React","Node"], status:"done",  url:"https://drive.google.com/file/d/1pM-EYgE6PywhCiSgchpLkktlVvbywpbA/view?usp=sharing", img:"img/vainoai.webp" }
+];
 
-carImgs.forEach((_, i) => {
-  const d = document.createElement('button');
-  d.className = 'car-dot' + (i === 0 ? ' active' : '');
-  d.setAttribute('aria-label', 'Kuva ' + (i + 1));
-  d.addEventListener('click', () => carGoTo(i));
-  dotsWrap.appendChild(d);
-});
+const PCARD_GEM = `<svg class="pcard-gem" viewBox="0 0 200 200" fill="none">
+  <polygon points="100,8 192,60 192,140 100,192 8,140 8,60"    stroke="currentColor" stroke-width=".6" fill="none"/>
+  <polygon points="100,28 172,66 172,134 100,172 28,134 28,66" stroke="currentColor" stroke-width=".4" opacity=".5" fill="none"/>
+  <polygon points="100,55 145,80 145,120 100,145 55,120 55,80" stroke="currentColor" stroke-width=".4" opacity=".3" fill="none"/>
+  <circle cx="100" cy="100" r="7"   stroke="currentColor" stroke-width=".6" fill="none"/>
+  <circle cx="100" cy="100" r="2.5" fill="currentColor" opacity=".5"/>
+</svg>`;
 
-function carGoTo(n) {
-  carImgs[carIdx].classList.remove('active');
-  dotsWrap.children[carIdx].classList.remove('active');
-  carIdx = n;
-  carImgs[carIdx].classList.add('active');
-  dotsWrap.children[carIdx].classList.add('active');
-  clearInterval(carTimer);
-  carTimer = setInterval(() => carGoTo((carIdx + 1) % carImgs.length), 3400);
-}
-carTimer = setInterval(() => carGoTo((carIdx + 1) % carImgs.length), 3400);
+(function initProjects() {
+  const grid    = document.getElementById('projGrid');
+  const filters = document.getElementById('projFilters');
+  if (!grid || !filters) return;
+
+  const esc = s => s.replace(/[&<>"]/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;' }[c]));
+
+  function match(p, f) {
+    if (f === 'all') return true;
+    if (f === 'wip') return p.status === 'wip';
+    return p.tags.includes(f);
+  }
+
+  function render(f) {
+    grid.innerHTML = '';
+    PROJECTS.filter(p => match(p, f)).forEach((p, i) => {
+      const wip  = p.status === 'wip';
+      const card = document.createElement('a');
+      card.className = 'pcard';
+      card.href = p.url; card.target = '_blank'; card.rel = 'noopener';
+      card.style.animationDelay = (i * 0.06) + 's';
+      card.innerHTML =
+        '<div class="pcard-img">' +
+          (p.img ? `<img src="${esc(p.img)}" alt="${esc(p.name)}">` : PCARD_GEM) +
+          `<span class="pcard-status ${wip ? 'wip' : 'done'}">${wip ? '◆ Työn alla' : '✓ Valmis'}</span>` +
+        '</div>' +
+        '<div class="pcard-body">' +
+          `<h3 class="pcard-name">${esc(p.name)}</h3>` +
+          `<p class="pcard-desc">${esc(p.desc)}</p>` +
+          `<div class="pcard-tech">${p.tech.map(t => `<span>${esc(t)}</span>`).join('')}</div>` +
+        '</div>';
+      grid.appendChild(card);
+    });
+    // custom cursor -hover uusille korteille
+    grid.querySelectorAll('a').forEach(el => {
+      el.addEventListener('mouseenter', () => { cur.classList.add('on'); curRing.classList.add('on'); });
+      el.addEventListener('mouseleave', () => { cur.classList.remove('on'); curRing.classList.remove('on'); });
+    });
+  }
+
+  filters.addEventListener('click', e => {
+    const btn = e.target.closest('.fbtn');
+    if (!btn) return;
+    filters.querySelectorAll('.fbtn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    render(btn.dataset.f);
+  });
+
+  render('all');
+})();
 
 /* ══════════════════════════════════════════
    PARALLAX HERO
@@ -306,13 +356,6 @@ logoA.addEventListener('mouseleave', () => {
 logoA.addEventListener('click', (e) => {
   e.preventDefault();
   window.scrollTo({ top: 0, behavior: 'smooth' });
-});
-
-/* ══════════════════════════════════════════
-   PROJECT LINK staggered entrance delay
-══════════════════════════════════════════ */
-document.querySelectorAll('.plink').forEach((el, i) => {
-  el.style.transitionDelay = (i * .05) + 's';
 });
 
 /* ══════════════════════════════════════════
