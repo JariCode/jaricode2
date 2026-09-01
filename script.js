@@ -257,7 +257,7 @@ const PROJECTS = [
   { name:"Judovisa",          desc:"Judon termistöä testaava visasovellus.",                          tech:["JavaScript","Node.js"],            tags:["JS"],           status:"wip",  url:"https://www.youtube.com/watch?v=b0A5zm8vlyg", img:"img/judovisa.webp" },
   { name:"Ikimetsä",          desc:"React-pohjainen roolipeli metsämaailmassa.",                      tech:["React","Roolipeli"],               tags:["React"],        status:"wip",  url:"https://drive.google.com/file/d/19yDpMizZySFxg0jdJ-55eZmp4t_74Plb/view", img:"img/ikimetsa.webp" },
   { name:"Kilsamittari",      desc:"Kävelypäiväkirja matkojen seurantaan.",                           tech:["React","MERN"],                    tags:["React"],        status:"done",  url:"https://youtu.be/zV87zPPu7hQ?si=fntKzL1zCzyU7Jdz", img:"img/kilsamittari.webp" },
-   { name:"VäinöAI",          desc:"Keskusteleva tekoälyhahmo.",                                      tech:["React","Node.js","OpenAI"],        tags:["React"],        status:"done",  url:"https://drive.google.com/file/d/1pM-EYgE6PywhCiSgchpLkktlVvbywpbA/view?usp=sharing", img:"img/vainoai.webp" }
+   { name:"VäinöAI",          desc:"Keskusteleva tekoälyhahmo.",                                      tech:["React","Node.js","OpenAI"],        tags:["React"],        status:"done",  url:"https://youtu.be/jhXInQ_DfRg?si=HWYnyCqndL0sQF1Z", img:"img/vainoai.webp" }
 ];
 
 const PCARD_GEM = `<svg class="pcard-gem" viewBox="0 0 200 200" fill="none">
