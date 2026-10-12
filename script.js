@@ -259,7 +259,7 @@ const PROJECTS = [
   { name:"Kilsamittari",      desc:"Kävelypäiväkirja matkojen seurantaan.",                           tech:["React","MERN"],                    tags:["React"],        status:"done",  url:"https://youtu.be/zV87zPPu7hQ?si=fntKzL1zCzyU7Jdz",  img:"img/kilsamittari.webp" },
   { name:"VäinöAI",           desc:"Keskusteleva tekoälyhahmo.",                                      tech:["React","Node.js","OpenAI"],        tags:["React"],        status:"done",   url:"https://youtu.be/jhXInQ_DfRg?si=HWYnyCqndL0sQF1Z", img:"img/vainoai.webp" },
   { name:"Nimeoniter",        desc:"Pelillistetty tehtävienhallintasovellus.",                         tech:["React","Node.js","OpenAI"],        tags:["React"],        status:"wip",    url:"https://youtu.be/Imdgt3M-HI0?si=LDDxJaavs10G2sGU", img:"img/nimeoniter.webp" },
-  { name:"Kreniter Mind",     desc:"Projektien, tehtävien ja muistiinpanojen työtila.",               tech:["React","Node.js","OpenAI"],        tags:["React"],        status:"wip",    url:"img/kreniter-mind-coming-soon.webp",                 img:"img/kreniter-mind.webp" },
+  { name:"Kreniter Mind",     desc:"Projektien, tehtävien ja muistiinpanojen työtila.",               tech:["React","Node.js","OpenAI"],        tags:["React"],        status:"wip",    url:"https://youtu.be/Q8WitiBMVgw?si=qgQhBrtHrA1xFotg",   img:"img/kreniter-mind.webp" },
 ];
 
 const PCARD_GEM = `<svg class="pcard-gem" viewBox="0 0 200 200" fill="none">
